@@ -1,0 +1,57 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const {
+  title,
+  description = "Acompáñanos a celebrar la boda de Kamila y Angelo.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#A8B89A" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Italiana&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="/og.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <title>{title}</title>
+    <style is:global>
+      :root {
+        --ink: #403b42;
+        --lavender: #b7a7d9;
+        --soft-lilac: #dcc6e6;
+        --ivory: #f7f5f0;
+        --sage: #a8b89a;
+        --sage-deep: #829377;
+        --mauve: #aa829d;
+        --line: rgba(73, 65, 76, 0.2);
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        min-width: 320px;
+        color: var(--ink);
+        background: #e4e0e6;
+        font-family: "Montserrat", sans-serif;
+        font-weight: 300;
+      }
+      a { color: inherit; }
+      button, input, select, textarea { font: inherit; }
+      img { max-width: 100%; }
+      ::selection { color: var(--ivory); background: var(--sage-deep); }
+    </style>
+  </head>
+  <body><slot /></body>
+</html>
